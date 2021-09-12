@@ -1,2 +1,2 @@
-# demo_httpruner_deepdiff
-this project is a demo of union httpruner and deepdiff
+# httprunner-pactverify-demo
+httprunner与pactverify结合demo,基于httprunner 2.5.7版本
