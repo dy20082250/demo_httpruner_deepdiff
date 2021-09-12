@@ -1,0 +1,22 @@
+# 基于httprunner 2.5.7版本
+config:
+  name: demo get diff json
+  base_url: http://httpbin.org
+  verify: False
+
+teststeps:
+  - name: get_json
+    request:
+      method: GET
+      url: /get
+      data:
+        name: "lili"
+        age: 13
+    teardown_hooks:
+      - ${json_diff($response)}
+    validate:
+      - eq: [status_code,200]
+      # 判断verify_result是否为true
+      - eq: [verify_result,true]
+      # 判断len(verify_info) >= 0，为了输出verify_info到测试报告
+      - len_ge: [verify_info,0]
